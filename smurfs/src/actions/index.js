@@ -22,12 +22,13 @@ export const fetchSmurfs = () => dispatch => {
             { type: FETCH_FAILURE, payload: err.response}))
 }
 
-export const postSmurfs = (smurfInfo) => dispatch => {
-    dispatch({ type: ADD_SMURF });
+
+export const postSmurfs = (smurf) => dispatch => {
+    // dispatch({ type: ADD_SMURF });
 
     axios
         .post(
-            'http://localhost:3333/smurfs', smurfInfo)
+            'http://localhost:3333/smurfs', smurf)
         .then (res => {
             console.log(res)
             dispatch({

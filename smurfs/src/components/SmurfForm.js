@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { postSmurfs } from '../actions';
-import axios from 'axios';
+
+
 
 
 const SmurfForm = (props) => {
@@ -9,24 +10,24 @@ const SmurfForm = (props) => {
     const [newSmurf, setNewSmurf] = useState({name: '', age: '', height:''});
 
     const handleSubmit = e => {
-       e.preventDefault();
-
+        console.log(newSmurf)
+       props.postSmurfs(newSmurf)
  }
 
     const handleChanges = e => {
-
+        let name = e.target.name
         setNewSmurf({
             ...newSmurf,
-            [e.target.name]: e.target.value
-        })
+            [name] : e.target.value
+        })}
 
     return (
         <div>
-            <form onSubmit = {handleSubmit}>
+            <form>
             <input
                 type = "text"
                 name = "name"
-                value = {name}
+                // value = {newSmurf.name}
                 onChange = {handleChanges}
                 placeholder = "Name"
                 />
@@ -34,7 +35,7 @@ const SmurfForm = (props) => {
             <input
                 type = "text"
                 name = "age"
-                value = {age}
+                // value = {newSmurf.age}
                 onChange = {handleChanges}
                 placeholder = "Age"
                 />
@@ -42,20 +43,27 @@ const SmurfForm = (props) => {
              <input
                 type = "text"
                 name = "height"
-                value = {height}
+                // value = {newSmurf.height}
                 onChange = {handleChanges}
                 placeholder = "Height"
                 />
 
             <button 
-             type = "submit"
+             onClick = {handleSubmit} 
+            
             >Submit</button>
-
-            </form>
+           </form> 
+           
         </div>
-    )
-}
+    );
+};
+// };
+export default connect(
+    null,
+    { postSmurfs }
+)(SmurfForm)
 
+// export default SmurfForm;
 // const mapStateToProps = state => {
 //     return {
 //         smurfInfo: state.smurfInfo,
@@ -64,7 +72,3 @@ const SmurfForm = (props) => {
 //     };
 // };
 
-export default connect(
-    null,
-    { postSmurfs }
-)(SmurfForm);

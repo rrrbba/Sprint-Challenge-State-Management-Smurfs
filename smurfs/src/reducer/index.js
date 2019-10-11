@@ -29,15 +29,15 @@ const reducer = (state = initialState, action) => {
                 isFetching: false,
                 error: action.payload
             };
-        case ADD_SMURF :
-            return{
-                ...state,
-            }
-        case ADD_SUCCESS: 
-            return{
-                ...state,
-                smurfInfo: [...state.smurfInfo, action.payload]
-            }
+        // case ADD_SMURF :
+        //     return{
+        //         ...state,
+        //     }
+        // case ADD_SUCCESS: 
+        //     return{
+        //         ...state,
+        //         smurfInfo: [...state.smurfInfo, action.payload]
+        //     }
         default: return state;
     }
 }

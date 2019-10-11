@@ -4,8 +4,8 @@ import SmurfForm  from './SmurfForm';
 import Members from './Members';
 
 
-class App extends Component {
-  render() {
+const App = () =>{
+  
     return (
       <div className="App">
         <h1>SMURFS! 2.0 W/ Redux</h1>
@@ -15,6 +15,6 @@ class App extends Component {
       </div>
     );
   }
-}
+
 
 export default App;

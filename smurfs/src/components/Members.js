@@ -15,8 +15,8 @@ const Members = props => {
     return (
         <div>
             {props.error && <p>{props.error}</p>}
-            {props.smurfs.map(smurf => (
-                <Member key = {smurf.id} name = {smurf.name} age = {smurf.age} height = {smurf.height} />
+            {props.smurfInfo.map(smurf => (
+                <Member key = {smurf.id} smurf = {smurf} />
             ))}
         </div>
     );
@@ -26,7 +26,7 @@ const Members = props => {
 const mapStateToProps = state => {
 
     return {
-        smurfs: state.smurfs,
+        smurfInfo: state.smurfInfo,
         isFetching: state.isFetching,
         error: state.error
     };
